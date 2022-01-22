@@ -1,0 +1,40 @@
+.nav-wrapper {
+    height: 100px;
+    padding: 0px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 999;
+    border-bottom: 2px solid #067b04;
+}
+
+.brand-logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #067b04;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.counter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ca2339;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
