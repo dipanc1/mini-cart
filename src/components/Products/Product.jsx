@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import Navbar from "../Navbar/Navbar";
 import './Product.css';
+import Navbar from '../Navbar/Navbar'
 
 const Product = () => {
 
@@ -12,7 +12,7 @@ const Product = () => {
     useEffect(() => {
         axios.get(apiUrl)
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 setProducts(response.data.products);
             })
             .catch(error => {
@@ -34,7 +34,7 @@ const Product = () => {
     }
 
     return (<>
-        <Navbar value={value}/>
+        <Navbar value={value} />
         {products.map(product => (
             <div className="product" key={product.id}>
                 <div className="product-image">
