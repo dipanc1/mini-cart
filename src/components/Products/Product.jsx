@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
+import Navbar from "../Navbar/Navbar";
 import './Product.css';
 
 const Product = () => {
 
     const [products, setProducts] = React.useState([]);
+    const [value, setValue] = React.useState(1);
 
     const apiUrl = 'https://dnc0cmt2n557n.cloudfront.net/products.json';
     useEffect(() => {
@@ -18,11 +20,25 @@ const Product = () => {
             });
     }, []);
 
+
+    const handlePlus = () => {
+        setValue(value + 1);
+    }
+
+    const handleMinus = () => {
+        setValue(value - 1);
+    }
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    }
+
     return (<>
+        <Navbar value={value}/>
         {products.map(product => (
             <div className="product" key={product.id}>
                 <div className="product-image">
-                    <img src={product.image} alt="product" className='image'/>
+                    <img src={product.image} alt="product" className='image' />
                 </div>
                 <div className="product-details" >
                     <div className="product-title">
@@ -32,13 +48,13 @@ const Product = () => {
                         <p>{product.desc}</p>
                     </div>
                     <div className="product-quantity">
-                        <h2 className='fab'>-</h2>
-                        <input type="number" min="1" max="9999" className='input' />
-                        <h2 className='fab'>+</h2>
+                        <h2 className='fab' onClick={handleMinus}>-</h2>
+                        <input type="number" value={value} onChange={handleChange} className='input' />
+                        <h2 className='fab' onClick={handlePlus}>+</h2>
                     </div>
                     <div className="product-price">
                         <p>{product.currency}</p>
-                        <p>{product.price}</p>
+                        <p>{product.price * value}</p>
                     </div>
                 </div>
             </div>
