@@ -1,21 +1,29 @@
 import React from 'react';
+import './Cart.css';
 
 const Cart = () => {
   return (
-  <>
-    <div className="cart">
-        <h1>Cart</h1>
-    </div>
-    <div>
-        <h2>Cart Items</h2>
-    </div>
-    <div>
-        <h2>Cart Total</h2>
-    </div>
-    <div>
-        <button>Checkout</button>
-    </div>
-  </>
+    <>
+      <div className="cart">
+        <div className="cart-cross">
+          <p className='cross'>X</p>
+        </div>
+        <div className="cart-details">
+          <div className="cart-title">
+            <h2>
+              Product Title
+            </h2>
+            <p>
+              $19.99
+            </p>
+          </div>
+          <div className="cart-quantity">
+            <h2>Qty</h2>
+            <p>12</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

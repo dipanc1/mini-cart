@@ -9,16 +9,20 @@ const Product = () => {
             </div>
             <div className="product-details">
                 <div className="product-title">
-                    Product Title
+                    <h2>
+                        Product Title
+                    </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla laudantium commodi eligendi?</p>
+                </div>
+                <div className="product-quantity">
+                    <h2>-</h2>
+                    <input type="number" min="1" max="9999" className='input'/>
+                    <h2>+</h2>
                 </div>
                 <div className="product-price">
                     $19.99
                 </div>
-                <div className="product-description">
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla laudantium commodi eligendi?</p>
-                </div>
             </div>
-            <button className='addToCart'>Add to Cart</button>
         </div>
 
     );
