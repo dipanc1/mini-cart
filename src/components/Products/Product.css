@@ -14,6 +14,14 @@
 .product-image {
     width: 50%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 50%;
+    height: 100%;
 }
 
 .product-details {
@@ -27,11 +35,16 @@
 
 .product-title {
     font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
     padding: 10px;
 }
 
 .product-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 4%;
     font-size: 20px;
     font-weight: bold;
     color: #000;
@@ -59,8 +72,12 @@
     border: none;
 }
 
+:focus {
+    outline: none;
+}
+
 .fab {
-    background-color: #F0F4F7;
+    background-color: #f0f4f7;
     border-radius: 50%;
     width: 20%;
     display: flex;
