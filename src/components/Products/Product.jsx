@@ -18,6 +18,7 @@ const Product = () => {
                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla laudantium commodi eligendi?</p>
                 </div>
             </div>
+            <button className='addToCart'>Add to Cart</button>
         </div>
 
     );
