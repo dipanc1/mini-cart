@@ -4,27 +4,27 @@ import './Navbar.css';
 
 const Navbar = ({ value1, value2, product1, product2 }) => {
 
-    const [cart, setCart] = React.useState('noCart');
+    const [cart, setCart] = React.useState(false);
+    // const [toggle, setToggle] = React.useState(false)
 
     const handleCart = () => {
-        setCart("cart");
+        setCart(!cart);
+        // setToggle(!toggle)
     }
 
     return (<>
-        {cart === 'noCart' ?
-            <div className="nav-wrapper">
-                <a href="/" className="brand-logo">Mini Cart</a>
-                <div className="cart-icon" onClick={handleCart}>
-                    <div className="counter">
-                    <p>{product1.currency}</p>
-                    <p>{(product1.price * value1)+(product2.price * value2)}</p>
-                        <p>{value1 + value2} Items</p>
-                    </div>
-                    <img src="cart.png" alt="cart" height={40} width={40} />
-                </div>
+        <div className="nav-wrapper">
+            <a href="/" className="brand-logo">Mini Cart</a>
+            <div className="counter">
+                <p> {product1.currency}{(product1.price * value1) + (product2.price * value2)}</p>
+                <p onClick={handleCart}  style={{ transform: [{ rotate: '180deg' }] }}><i className='arrow'>↓</i>  {value1 + value2} Items </p>
             </div>
-            : <Cart value1={value1} value2={value2} product1={product1} product2={product2} />
-        }
+            <div className="cart-icon" onClick={handleCart}>
+                <img src="cart.png" alt="cart" height={40} width={40} />
+            </div>
+        </div>
+        {cart && (<Cart value1={value1} value2={value2} product1={product1} product2={product2} />)}
+
     </>
     );
 };

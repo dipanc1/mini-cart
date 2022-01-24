@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
 import './Cart.css';
 
 const Cart = ({ value1, value2, product1, product2 }) => {
@@ -18,7 +17,6 @@ const Cart = ({ value1, value2, product1, product2 }) => {
 
   return (
     <>
-      <Navbar value1={value1} value2={value2} product1={product1} product2={product2} />
       {cart1 === 'Cart1' ?
         <div className="cart" >
           <div className="cart-cross">

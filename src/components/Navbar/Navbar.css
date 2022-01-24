@@ -8,27 +8,38 @@
     top: 0;
     z-index: 999;
     border-bottom: 2px solid #ccc;
-    background-color: #F0F4F7;
+    background-color: #f0f4f7;
 }
 
 .brand-logo {
     font-size: 2.5rem;
     font-weight: bold;
     text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #000;
 }
 
-.cart-icon {
-    position: relative;
+.counter {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    margin-left: 1150px;
     cursor: pointer;
+    font-size: large;
 }
 
-.counter {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.cart-icon {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-weight: bold;
-    width: 50%;
+}
+
+.arrow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
 }
