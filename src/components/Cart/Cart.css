@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .cross {
@@ -27,7 +28,6 @@
     font-weight: bold;
     text-decoration: none;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    cursor: pointer;
 }
 
 .cart-details {

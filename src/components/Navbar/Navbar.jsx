@@ -5,11 +5,9 @@ import './Navbar.css';
 const Navbar = ({ value1, value2, product1, product2 }) => {
 
     const [cart, setCart] = React.useState(false);
-    // const [toggle, setToggle] = React.useState(false)
 
     const handleCart = () => {
         setCart(!cart);
-        // setToggle(!toggle)
     }
 
     return (<>
@@ -17,7 +15,7 @@ const Navbar = ({ value1, value2, product1, product2 }) => {
             <a href="/" className="brand-logo">Mini Cart</a>
             <div className="counter">
                 <p> {product1.currency}{(product1.price * value1) + (product2.price * value2)}</p>
-                <p onClick={handleCart}  style={{ transform: [{ rotate: '180deg' }] }}><i className='arrow'>↓</i>  {value1 + value2} Items </p>
+                <p onClick={handleCart}><i className='arrow'>{cart ? '↑' : '↓'}</i>  {value1 + value2} Items </p>
             </div>
             <div className="cart-icon" onClick={handleCart}>
                 <img src="cart.png" alt="cart" height={40} width={40} />

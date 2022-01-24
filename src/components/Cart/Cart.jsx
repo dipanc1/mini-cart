@@ -19,8 +19,8 @@ const Cart = ({ value1, value2, product1, product2 }) => {
     <>
       {cart1 === 'Cart1' ?
         <div className="cart" >
-          <div className="cart-cross">
-            <p className='cross' onClick={handleProduct1Cross}>X</p>
+          <div className="cart-cross" onClick={handleProduct1Cross}>
+            <p className='cross'>X</p>
           </div>
           <div className="cart-details">
             <div className="cart-title">
