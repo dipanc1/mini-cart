@@ -10,11 +10,16 @@ const Product = () => {
     const [value1, setValue1] = React.useState(1);
     const [value2, setValue2] = React.useState(1);
 
+    const valueObj1 = (JSON.parse(localStorage.getItem('value1')));
+    const valueObj2 = (JSON.parse(localStorage.getItem('value2')));
+    const productObj1 = (JSON.parse(localStorage.getItem('product1price')));
+    const productObj2 = (JSON.parse(localStorage.getItem('product2price')));
+
     const apiUrl = 'https://dnc0cmt2n557n.cloudfront.net/products.json';
     useEffect(() => {
         axios.get(apiUrl)
             .then(response => {
-                // console.log(response.data.products[0]);
+                // console.log(response.data);
                 setProduct1(response.data.products[0]);
                 setProduct2(response.data.products[1]);
             })
@@ -28,7 +33,8 @@ const Product = () => {
         localStorage.setItem('value2', JSON.stringify(value2));
         localStorage.setItem('product1price', JSON.stringify(product1.price * value1));
         localStorage.setItem('product2price', JSON.stringify(product2.price * value2));
-    }, [product1.price, product2.price, value1, value2]);
+
+    }, [value1, value2, product1, product2]);
 
 
     const handlePlus1 = () => {
@@ -70,12 +76,12 @@ const Product = () => {
                 </div>
                 <div className="product-quantity">
                     <h2 className='fab' onClick={handleMinus1}>-</h2>
-                    <input type="number" value={value1} onChange={handleChange1} className='input' />
+                    <input type="number" value={valueObj1} onChange={handleChange1} className='input' />
                     <h2 className='fab' onClick={handlePlus1}>+</h2>
                 </div>
                 <div className="product-price">
                     <p>{product1.currency}</p>
-                    <p>{product1.price * value1}</p>
+                    <p>{productObj1}</p>
                 </div>
             </div>
         </div>
@@ -92,12 +98,12 @@ const Product = () => {
                 </div>
                 <div className="product-quantity">
                     <h2 className='fab' onClick={handleMinus2}>-</h2>
-                    <input type="number" value={value2} onChange={handleChange2} className='input' />
+                    <input type="number" value={valueObj2} onChange={handleChange2} className='input' />
                     <h2 className='fab' onClick={handlePlus2}>+</h2>
                 </div>
                 <div className="product-price">
                     <p>{product2.currency}</p>
-                    <p>{product2.price * value2}</p>
+                    <p>{productObj2}</p>
                 </div>
             </div>
         </div>
