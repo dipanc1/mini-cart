@@ -23,6 +23,13 @@ const Product = () => {
             });
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem('value1', JSON.stringify(value1));
+        localStorage.setItem('value2', JSON.stringify(value2));
+        localStorage.setItem('product1price', JSON.stringify(product1.price * value1));
+        localStorage.setItem('product2price', JSON.stringify(product2.price * value2));
+    }, [product1.price, product2.price, value1, value2]);
+
 
     const handlePlus1 = () => {
         setValue1(value1 + 1);
@@ -35,7 +42,7 @@ const Product = () => {
     const handleChange1 = (event) => {
         setValue1(event.target.value);
     }
-    
+
     const handlePlus2 = () => {
         setValue2(value2 + 1);
     }
