@@ -5,15 +5,15 @@ import Navbar from '../Navbar/Navbar'
 
 const Product = () => {
 
-    const [product1, setProduct1] = React.useState([]);
-    const [product2, setProduct2] = React.useState([]);
-    const [value1, setValue1] = React.useState(1);
-    const [value2, setValue2] = React.useState(1);
+    const valueObj1 = JSON.parse(localStorage.getItem('value1')) || 1;
+    const valueObj2 = JSON.parse(localStorage.getItem('value2')) || 1;
+    const productObj1 = JSON.parse(localStorage.getItem('product1price')) || [];
+    const productObj2 = JSON.parse(localStorage.getItem('product2price')) || [];
 
-    const valueObj1 = (JSON.parse(localStorage.getItem('value1')));
-    const valueObj2 = (JSON.parse(localStorage.getItem('value2')));
-    const productObj1 = (JSON.parse(localStorage.getItem('product1price')));
-    const productObj2 = (JSON.parse(localStorage.getItem('product2price')));
+    const [product1, setProduct1] = React.useState(productObj1);
+    const [product2, setProduct2] = React.useState(productObj2);
+    const [value1, setValue1] = React.useState(valueObj1);
+    const [value2, setValue2] = React.useState(valueObj2);
 
     const apiUrl = 'https://dnc0cmt2n557n.cloudfront.net/products.json';
     useEffect(() => {
@@ -29,10 +29,15 @@ const Product = () => {
     }, []);
 
     useEffect(() => {
+        // if (JSON.parse(localStorage.getItem('value1')) === 1) {
+        // return;
+        // }
+        // else {
         localStorage.setItem('value1', JSON.stringify(value1));
         localStorage.setItem('value2', JSON.stringify(value2));
         localStorage.setItem('product1price', JSON.stringify(product1.price * value1));
         localStorage.setItem('product2price', JSON.stringify(product2.price * value2));
+        // }
 
     }, [value1, value2, product1, product2]);
 
